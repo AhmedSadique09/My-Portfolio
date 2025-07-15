@@ -2,10 +2,8 @@ import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="container mx-auto py-10 md:py-20 text-white flex flex-col md:flex-row items-center justify-center px-4"
-    >
+    <section id="contact" className="container mx-auto py-10 md:py-20 text-white flex flex-col md:flex-row items-center justify-center px-4">
+
       {/* Left Side */}
       <div className="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
         <h1 className="text-4xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">

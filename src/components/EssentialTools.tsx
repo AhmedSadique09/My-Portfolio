@@ -11,7 +11,7 @@ export default function EssentialTools() {
   ];
 
   return (
-    <section className="container text-white px-4 max-w-screen-xl mx-auto py-10 md:py-20">
+    <section id="tools" className="container text-white px-4 max-w-screen-xl mx-auto py-10 md:py-20">
       <h2 className="text-center sm:px-6 text-2xl sm:text-3xl font-bold mb-4 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
         Essential Tools I use
       </h2>

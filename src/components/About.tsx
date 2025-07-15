@@ -1,9 +1,6 @@
 export default function About() {
   return (
-    <section
-      id="about"
-      className="container py-10 md:py-20 w-full flex items-center justify-center px-6 md:px-20 text-white"
-    >
+    <section id="about" className="container py-10 md:py-20 w-full flex items-center justify-center px-6 md:px-20 text-white">
       <div className="bg-[#202024] text-white rounded-xl p-6 md:p-8 mx-auto shadow-md w-full">
         <p className="text-sm sm:text-base leading-relaxed mb-6 text-gray-300">
           Hi, I’m Ghulam Ahmed — a passionate MERN Stack Developer committed to crafting sleek, high-performing web applications.

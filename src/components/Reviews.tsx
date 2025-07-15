@@ -59,11 +59,7 @@ export default function Reviews() {
   const loopTestimonials = [...testimonials, ...testimonials];
 
   return (
-    <section
-      ref={ref}
-      id="reviews"
-      className="container mx-auto px-4 py-10 md:py-20 text-white overflow-hidden"
-    >
+    <section ref={ref} id="reviews" className="container mx-auto px-4 py-10 md:py-20 text-white overflow-hidden">
       <h2 className="text-3xl font-bold mb-8 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500 text-center">
         What Our Users Are Saying
       </h2>

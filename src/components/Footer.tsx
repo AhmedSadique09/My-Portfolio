@@ -1,7 +1,7 @@
 export default function Footer() {
   return (
-    <footer className="text-white px-6 py-5">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start md:items-center">
+    <footer id="footer" className="text-white px-6 py-5">
+      <div className="container max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-start md:items-center">
 
         {/* Left: CTA */}
         <div className="max-w-xl text-center md:text-left mx-auto md:mx-0">
@@ -9,7 +9,7 @@ export default function Footer() {
             Let’s build your vision <br /> together, today!
           </h2>
           <p className="text-sm text-gray-400 pt-2">
-            Fill out the form below to get in touch. We typically<br /> respond within 24 hours.
+            Fill out the form to get in touch. We typically<br /> respond within 24 hours.
           </p>
         </div>
 

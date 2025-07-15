@@ -9,11 +9,7 @@ export default function Hero() {
   };
 
   return (
-    <section
-      id="home"
-      className="container mx-auto min-h-150 text-white flex flex-col md:flex-row items-center justify-center px-4 py-10 md:py-20"
-
-    >
+    <section id="home" className="container mx-auto min-h-150 text-white flex flex-col md:flex-row items-center justify-center px-4 py-10 md:py-20">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 w-full max-w-4xl">
         {/* Left Section */}
         <div className="flex-1 flex flex-col gap-6">
