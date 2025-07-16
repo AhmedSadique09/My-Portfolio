@@ -30,7 +30,7 @@ const projects = [
   },
   {
     title: 'Personal Portfolio',
-    image: '/images/project-6.jpg',
+    image: '/images/project-6.png',
     tags: ['Web Design', 'Development'],
   },
 ];
@@ -54,7 +54,7 @@ export default function Work() {
           <div
             key={project.title}
             className={`group flex flex-col rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition ${theme === "light"
-              ? "bg-neutral-200 border border-gray-400 shadow-[0_10px_50px_rgba(0,0,0,0.08)] rounded-2xl"
+              ? "bg-neutral-100 border border-gray-400 shadow-[0_10px_50px_rgba(0,0,0,0.08)] rounded-2xl"
               : "bg-[#202024] border border-white/10 rounded-2xl"
 
               }`}
