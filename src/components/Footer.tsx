@@ -41,9 +41,8 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div
-        className={`border-t mt-10 pt-4 text-sm flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-[2px] ${
-          theme === "light" ? "border-gray-500 text-gray-600" : "border-gray-300 text-gray-300"
-        }`}
+        className={`border-t mt-10 pt-4 text-sm flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-[2px] ${theme === "light" ? "border-gray-500 text-gray-600" : "border-gray-300 text-gray-300"
+          }`}
       >
         <img
           src={theme === "light" ? "/images/logo_black.svg" : "/images/logo.svg"}

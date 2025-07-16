@@ -16,7 +16,7 @@ export default function ThemeProvider({ children }: PropsWithChildren<{}>) {
   }, [theme]);
 
   return (
-    <div className="min-h-screen bg-primary text-primary transition-colors duration-300">
+    <div className="min-h-screen transition-colors duration-500 ease-in-out bg-primary text-primary">
       {children}
     </div>
   );

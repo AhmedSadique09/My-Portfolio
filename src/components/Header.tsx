@@ -8,6 +8,7 @@ import { FaMoon, FaSun } from "react-icons/fa";
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [positionClass, setPositionClass] = useState("sticky");
   const [activeLink, setActiveLink] = useState("Home");
   const dispatch = useDispatch();
   const { theme } = useSelector((state: RootState) => state.theme);
@@ -16,6 +17,7 @@ export default function Header() {
     const handleResize = () => {
       const isNowMobile = window.innerWidth <= 768;
       setIsMobile(isNowMobile);
+      setPositionClass(isNowMobile ? "absolute" : "sticky");
       if (!isNowMobile && isOpen) {
         setIsOpen(false);
       }
@@ -30,7 +32,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 left-0 w-full h-20 flex items-center z-50 px-4">
+      <header className={`${positionClass} top-0 left-0 w-full h-20 flex items-center z-50 px-4`}>
         <div className="container max-w-screen-xl mx-auto w-full flex items-center justify-between">
           {/* Logo */}
           <a href="/" className="flex items-center space-x-2">
@@ -94,8 +96,8 @@ export default function Header() {
             <button
               onClick={() => dispatch(toggleTheme())}
               className={`px-3 py-1.5 rounded-lg text-sm transition flex items-center justify-center ${theme === "light"
-                  ? "bg-white/40 rounded-2xl backdrop-blur-md border border-black/20"
-                  : "bg-white/10 text-white backdrop-blur-lg hover:bg-white/20"
+                ? "bg-white/40 rounded-2xl backdrop-blur-md border border-black/20"
+                : "bg-white/10 text-white backdrop-blur-lg hover:bg-white/20"
                 }`}
             >
               {theme === "light" ? <FaMoon className="text-black" /> : <FaSun className="text-white" />}

@@ -13,7 +13,7 @@ export default function Hero() {
   };
 
   return (
-    <section id="home" className="container mx-auto flex flex-col md:flex-row items-center justify-center px-4 pt-10 md:pt-35">
+    <section id="home" className="container mx-auto flex flex-col md:flex-row items-center justify-center px-4 pt-20 md:pt-35">
       <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 w-full max-w-5xl">
         {/* Left Section */}
         <div className="flex-1 flex flex-col gap-6">

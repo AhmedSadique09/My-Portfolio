@@ -69,8 +69,8 @@ export default function Reviews() {
     >
       <h2
         className={`text-3xl font-bold mb-8 leading-tight text-transparent bg-clip-text bg-gradient-to-r text-center ${theme === "light"
-            ? "from-[#202016] to-gray-900"
-            : "from-white to-gray-300"
+          ? "from-[#202016] to-gray-900"
+          : "from-white to-gray-300"
           }`}
       >
         What Our Users Are Saying
@@ -91,8 +91,8 @@ export default function Reviews() {
               <div
                 key={`${t.name}-${index}`}
                 className={`sm:w-[250px] md:w-[320px] max-w-xs flex-shrink-0 p-3 sm:p-4 rounded-2xl shadow-md ${theme === "light"
-                    ? "bg-neutral-100 text-black border border-gray-400 shadow-[0_10px_40px_rgba(0,0,0,0.08)]"
-                    : "bg-[#202024] text-white border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.1)]"
+                  ? "bg-neutral-100 text-black border border-gray-400 shadow-[0_10px_40px_rgba(0,0,0,0.08)]"
+                  : "bg-[#202024] text-white border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.1)]"
                   }`}
               >
                 <div>
@@ -108,8 +108,8 @@ export default function Reviews() {
                       </h3>
                       <p
                         className={`text-[10px] sm:text-xs ${theme === "light"
-                            ? "text-gray-700"
-                            : "text-gray-400"
+                          ? "text-gray-700"
+                          : "text-gray-400"
                           }`}
                       >
                         {t.company}
