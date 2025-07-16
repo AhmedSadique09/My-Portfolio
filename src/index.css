@@ -1,16 +1,51 @@
 @import "tailwindcss";
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-body{
-    background-color: #18181b;
+body {
+  @apply bg-neutral-200	 text-black transition-colors duration-300;
 }
 
-/* Components */
+html.dark body {
+  @apply bg-[#18181b] text-white;
+}
 
-/* Menu Button */
+html.dark input,
+html.dark textarea {
+  background-color: #3a3a3c;
+  color: white;
+}
+
+input,
+textarea {
+  background-color: #f3f3f3;
+  color: black;
+}
+
+html.dark ::placeholder {
+  color: #aaa;
+}
+
+::placeholder {
+  color: #555;
+}
+
+.container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
 
 .menu-btn {
   width: 2.5rem;
@@ -26,7 +61,7 @@ body{
   background-color: rgba(255, 255, 255, 0.15);
 }
 .menu-btn:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 .material-symbols-rounded {
@@ -46,20 +81,3 @@ body{
   -webkit-font-smoothing: antialiased;
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
-
-.container {
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-@media (min-width: 768px) {
-  .container {
-    padding-left: 2rem;
-    padding-right: 2rem;
-  }
-}
-
-

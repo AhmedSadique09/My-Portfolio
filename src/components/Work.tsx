@@ -1,4 +1,6 @@
-import { ArrowUpRight } from 'lucide-react';
+import { useSelector } from "react-redux";
+import type { RootState } from "../redux/store";
+import { ArrowUpRight } from "lucide-react";
 
 const projects = [
   {
@@ -34,9 +36,16 @@ const projects = [
 ];
 
 export default function Work() {
+  const { theme } = useSelector((state: RootState) => state.theme); // ✅ FIXED
+
   return (
-    <section id="work" className="container py-10 md:py-15 px-4">
-      <h2 className="text-center text-3xl font-bold mb-8 leading-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
+    <section id="work" className="container pt-10 md:pt-30 px-4">
+      <h2
+        className={`text-center text-2xl sm:text-3xl font-bold mb-4 leading-tight text-transparent bg-clip-text bg-gradient-to-r ${theme === "light"
+          ? "from-[#202016] to-gray-900"
+          : "from-white to-gray-300"
+          }`}
+      >
         My Portfolio Highlights
       </h2>
 
@@ -44,7 +53,11 @@ export default function Work() {
         {projects.map((project) => (
           <div
             key={project.title}
-            className="group flex flex-col rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition bg-[#202026]"
+            className={`group flex flex-col rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition ${theme === "light"
+              ? "bg-neutral-200 border border-gray-400 shadow-[0_10px_50px_rgba(0,0,0,0.08)] rounded-2xl"
+              : "bg-[#202024] border border-white/10 rounded-2xl"
+
+              }`}
           >
             {/* Image Container */}
             <div className="relative h-52 flex items-center justify-center overflow-hidden p-4">
@@ -57,8 +70,12 @@ export default function Work() {
 
             {/* Content Box */}
             <div className="flex flex-col flex-1 p-3 sm:p-4">
-              {/* Title */}
-              <h3 className="text-sm font-medium text-white mb-2">{project.title}</h3>
+              <h3
+                className={`text-sm font-medium mb-2 ${theme === "light" ? "text-black" : "text-white"
+                  }`}
+              >
+                {project.title}
+              </h3>
 
               {/* Tags + Button Row */}
               <div className="flex items-center justify-between mt-auto flex-wrap gap-1.5">
@@ -66,7 +83,10 @@ export default function Work() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="bg-[#2d2d2d] text-gray-300 text-xs px-2 py-0.5 rounded"
+                      className={`text-xs px-2 py-0.5 rounded ${theme === "light"
+                        ? "bg-gray-200 text-black"
+                        : "bg-[#2d2d2d] text-gray-300"
+                        }`}
                     >
                       {tag}
                     </span>

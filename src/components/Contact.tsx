@@ -1,17 +1,33 @@
+import { useSelector } from "react-redux";
+import type { RootState } from "../redux/store";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 
 export default function Contact() {
-  return (
-    <section id="contact" className="container mx-auto py-10 md:py-20 text-white flex flex-col md:flex-row items-center justify-center px-4">
+  const { theme } = useSelector((state: RootState) => state.theme);
 
+  return (
+    <section
+      id="contact"
+      className="container mx-auto py-10 md:py-25 flex flex-col md:flex-row items-center justify-center px-4"
+    >
       {/* Left Side */}
       <div className="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
-        <h1 className="text-4xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-500">
-          Looking to collaborate?<br /> I’m here
+        <h1
+          className={`text-4xl font-bold leading-tight text-transparent bg-clip-text bg-gradient-to-r ${theme === "light"
+            ? "from-[#202016] to-gray-900"
+            : "from-white to-gray-300"
+            }`}
+        >
+          Looking to collaborate?
+          <br /> I’m here
         </h1>
-        <p className="text-gray-400 mt-4">
+        <p
+          className={`mt-4 ${theme === "light" ? "text-gray-700" : "text-gray-300"
+            }`}
+        >
           Start a conversation today
-          and let’s turn your vision <br />
+          and let’s turn your vision
+          <br />
           into something exceptional.
         </p>
 
@@ -21,7 +37,10 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
-            className="hover:text-gray-400"
+            className={`transition ${theme === "light"
+              ? "text-black hover:text-gray-700"
+              : "text-white hover:text-gray-400"
+              }`}
           >
             <FaGithub size={24} />
           </a>
@@ -30,7 +49,7 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="hover:text-blue-400"
+            className="text-blue-500 hover:text-blue-400 transition"
           >
             <FaLinkedin size={24} />
           </a>
@@ -39,7 +58,7 @@ export default function Contact() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Instagram"
-            className="hover:text-pink-400"
+            className="text-pink-500 hover:text-pink-400 transition"
           >
             <FaInstagram size={24} />
           </a>
@@ -50,41 +69,69 @@ export default function Contact() {
       <form
         action="https://submit-form.com/8Pik6W3qN"
         method="POST"
-        className="w-full lg:w-1/2 bg-[#202020] p-6 sm:p-8 rounded-xl space-y-4 shadow-lg"
+        className={`w-full lg:w-1/2 p-6 sm:p-8 rounded-2xl shadow-lg space-y-4 transition ${theme === "light"
+          ? "bg-neutral-100 border border-gray-400 text-black"
+          : "bg-[#202024] border border-white/10 text-white"
+          }`}
       >
         <div className="flex flex-col sm:flex-row gap-4">
           <div className="w-full">
-            <label className="text-sm text-gray-400">Name</label>
+            <label
+              className={`text-sm ${theme === "light" ? "text-gray-700" : "text-gray-400"
+                }`}
+            >
+              Name
+            </label>
             <input
               type="text"
               name="name"
               required
               aria-label="Your Name"
-              className="w-full mt-1 p-2 rounded-lg bg-[#3a3a3c] text-white focus:outline-none focus:border-[#1da1f2] focus:ring-1 focus:ring-[#1da1f2]"
               placeholder="Your Name"
+              className={`w-full mt-1 p-2 rounded-lg focus:outline-none focus:border-[#1da1f2] focus:ring-1 focus:ring-[#1da1f2] ${theme === "light"
+                ? "bg-white text-black border border-gray-500"
+                : "bg-[#3a3a3c] text-white border border-transparent"
+                }`}
+
             />
           </div>
           <div className="w-full">
-            <label className="text-sm text-gray-400">Email</label>
+            <label
+              className={`text-sm ${theme === "light" ? "text-gray-700" : "text-gray-400"
+                }`}
+            >
+              Email
+            </label>
             <input
               type="email"
               name="email"
               required
               aria-label="Your Email"
-              className="w-full mt-1 p-2 rounded-lg bg-[#3a3a3c] text-white focus:outline-none focus:border-[#1da1f2] focus:ring-1 focus:ring-[#1da1f2]"
               placeholder="yourname@example.com"
+              className={`w-full mt-1 p-2 rounded-lg focus:outline-none focus:border-[#1da1f2] focus:ring-1 focus:ring-[#1da1f2] ${theme === "light"
+                ? "bg-white text-black border border-gray-500"
+                : "bg-[#3a3a3c] text-white border border-transparent"
+                }`}
             />
           </div>
         </div>
 
         <div>
-          <label className="text-sm text-gray-400">Message</label>
+          <label
+            className={`text-sm ${theme === "light" ? "text-gray-700" : "text-gray-400"
+              }`}
+          >
+            Message
+          </label>
           <textarea
             name="message"
             required
             aria-label="Your Message"
-            className="w-full mt-1 p-2 rounded-lg bg-[#3a3a3c] text-white h-32 resize-none focus:outline-none focus:border-[#1da1f2] focus:ring-1 focus:ring-[#1da1f2]"
             placeholder="Enter your message here..."
+            className={`w-full mt-1 p-2 rounded-lg h-32 resize-none focus:outline-none focus:border-[#1da1f2] focus:ring-1 focus:ring-[#1da1f2] ${theme === "light"
+              ? "bg-white text-black border border-gray-500"
+              : "bg-[#3a3a3c] text-white border border-transparent"
+              }`}
           ></textarea>
         </div>
 
