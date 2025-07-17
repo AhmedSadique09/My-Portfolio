@@ -86,12 +86,12 @@ export default function Header() {
           {/* Desktop Nav */}
           <nav
             className={`hidden md:flex gap-4 px-4 py-2 rounded-lg text-sm backdrop-blur-lg transition ${theme === "light"
-                ? scrolled
-                  ? "bg-white/60 rounded-2xl shadow-[0_8px_20px_5px_rgba(0,0,0,0.15)] border border-white/20"
-                  : "bg-transparent"
-                : scrolled
-                  ? "bg-white/10 text-white rounded-2xl shadow-[0_8px_20px_5px_rgba(255,255,255,0.08)] border border-white/20"
-                  : "bg-transparent text-white"
+              ? scrolled
+                ? "bg-white/60 rounded-2xl shadow-[0_8px_20px_5px_rgba(0,0,0,0.15)] border border-white/20"
+                : "bg-transparent"
+              : scrolled
+                ? "bg-white/10 text-white rounded-2xl shadow-[0_8px_20px_5px_rgba(255,255,255,0.08)] border border-white/20"
+                : "bg-transparent text-white"
               }`}
           >
             {navLinks.slice(0, 4).map((item) => (
@@ -100,12 +100,12 @@ export default function Header() {
                 href={`#${item.toLowerCase()}`}
                 onClick={() => setActiveLink(item)}
                 className={`px-3 py-1.5 rounded-lg font-medium transition ${activeLink === item
-                    ? theme === "light"
-                      ? "bg-black text-white"
-                      : "bg-white text-black"
-                    : theme === "light"
-                      ? "text-black"
-                      : "text-white"
+                  ? theme === "light"
+                    ? "bg-black text-white"
+                    : "bg-white text-black"
+                  : theme === "light"
+                    ? "text-black"
+                    : "text-white"
                   }`}
               >
                 {item}
@@ -118,8 +118,8 @@ export default function Header() {
             <a
               href="#contact"
               className={`text-sm font-medium px-4 py-1.5 rounded-lg transition ${theme === "light"
-                  ? "bg-black text-white hover:bg-gray-800"
-                  : "bg-white text-black hover:bg-gray-200"
+                ? "bg-black text-white hover:bg-gray-800"
+                : "bg-white text-black hover:bg-gray-200"
                 }`}
             >
               Contact Me
@@ -129,8 +129,8 @@ export default function Header() {
             <button
               onClick={() => dispatch(toggleTheme())}
               className={`px-3 py-2 rounded-lg text-sm transition flex items-center justify-center ${theme === "light"
-                  ? "bg-white/40 rounded-2xl backdrop-blur-md border border-black/20"
-                  : "bg-white/10 text-white backdrop-blur-lg hover:bg-white/20"
+                ? "bg-white/40 rounded-2xl backdrop-blur-md border border-black/20"
+                : "bg-white/10 text-white backdrop-blur-lg hover:bg-white/20"
                 }`}
             >
               {theme === "light" ? (
@@ -147,8 +147,8 @@ export default function Header() {
               onClick={() => setIsOpen(true)}
               aria-label="Open menu"
               className={`h-8 w-8 flex items-center justify-center rounded-lg text-xl transition backdrop-blur-lg ${theme === "light"
-                  ? "dark:bg-[#202020]/60 text-black border border-gray-100 shadow-lg hover:bg-black/40"
-                  : "bg-white/10 text-white hover:bg-white/20"
+                ? "dark:bg-[#202020]/60 text-black border border-gray-100 shadow-lg hover:bg-black/40"
+                : "bg-white/10 text-white hover:bg-white/20"
                 }`}
             >
               <span className="material-symbols-rounded">menu</span>
@@ -181,10 +181,10 @@ export default function Header() {
                     setIsOpen(false);
                   }}
                   className={`block px-4 py-2 rounded-lg ${activeLink === item
-                      ? "bg-white text-black"
-                      : index === navLinks.length - 1
-                        ? "text-white/70 hover:text-white"
-                        : "hover:text-gray-300"
+                    ? "bg-white text-black"
+                    : index === navLinks.length - 1
+                      ? "text-white/70 hover:text-white"
+                      : "hover:text-gray-300"
                     } ${index === 0 ? "mt-6" : ""}`}
                 >
                   {item}
