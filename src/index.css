@@ -7,9 +7,10 @@ html {
 }
 
 body {
-  @apply bg-neutral-100 text-black;
+  @apply bg-neutral-50 text-black;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
+
 
 html.dark body {
   @apply bg-[#18181b] text-white;
@@ -60,9 +61,11 @@ html.dark ::placeholder {
   backdrop-filter: blur(8px);
   transition: background-color 0.2s ease;
 }
+
 .menu-btn:hover {
   background-color: rgba(255, 255, 255, 0.15);
 }
+
 .menu-btn:active {
   transform: scale(0.95);
 }

@@ -8,13 +8,13 @@ import './index.css';
 import Reviews from "./components/Reviews";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
-
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Header />
-      <main id="main" className="main ">
+      <main id="main" className="main">
         <Hero />
         <About />
         <EssentialTools />
@@ -23,6 +23,7 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
+      <ScrollToTopButton />
     </BrowserRouter>
   );
 }

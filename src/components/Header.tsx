@@ -28,6 +28,24 @@ export default function Header() {
     return () => window.removeEventListener("resize", handleResize);
   }, [isOpen]);
 
+  // 👇 Sidebar bahar click detect karne wala effect
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const sidebar = document.getElementById("mobile-sidebar");
+      if (isOpen && sidebar && !sidebar.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    };
+
+    if (isOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [isOpen]);
+
   const navLinks = ["Home", "About", "Work", "Reviews", "Contact"];
 
   return (
@@ -93,9 +111,11 @@ export default function Header() {
             >
               Contact Me
             </a>
+
+            {/* Desktop theme Toggle */}
             <button
               onClick={() => dispatch(toggleTheme())}
-              className={`px-3 py-1.5 rounded-lg text-sm transition flex items-center justify-center ${theme === "light"
+              className={`px-3 py-2 rounded-lg text-sm transition flex items-center justify-center ${theme === "light"
                 ? "bg-white/40 rounded-2xl backdrop-blur-md border border-black/20"
                 : "bg-white/10 text-white backdrop-blur-lg hover:bg-white/20"
                 }`}
@@ -110,7 +130,7 @@ export default function Header() {
               onClick={() => setIsOpen(true)}
               aria-label="Open menu"
               className={`h-8 w-8 flex items-center justify-center rounded-lg text-xl transition backdrop-blur-lg ${theme === "light"
-                ? "bg-black/60 text-black border border-gray-100 shadow-lg hover:bg-black/40"
+                ? "dark:bg-[#202020]/60 text-black border border-gray-100 shadow-lg hover:bg-black/40"
                 : "bg-white/10 text-white hover:bg-white/20"
                 }`}
             >
@@ -122,7 +142,10 @@ export default function Header() {
         {/* Mobile Sidebar */}
         {isOpen && (
           <div className="fixed inset-0 z-50 bg-black/60 flex justify-end">
-            <div className="relative w-64 bg-white/10 backdrop-blur-lg p-6 rounded-xl m-4 space-y-4 text-white font-medium max-h-fit">
+            <div
+              id="mobile-sidebar"
+              className="relative w-64 bg-white/10 backdrop-blur-lg p-6 rounded-xl m-4 space-y-4 text-white font-medium max-h-fit"
+            >
               <button
                 onClick={() => setIsOpen(false)}
                 className="absolute top-3 right-4 text-white text-2xl"

@@ -36,7 +36,7 @@ const projects = [
 ];
 
 export default function Work() {
-  const { theme } = useSelector((state: RootState) => state.theme); // ✅ FIXED
+  const { theme } = useSelector((state: RootState) => state.theme);
 
   return (
     <section id="work" className="container pt-10 md:pt-30 px-4">
