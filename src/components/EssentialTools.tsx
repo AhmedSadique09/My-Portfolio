@@ -63,7 +63,7 @@ export default function EssentialTools() {
       </p>
 
       {/* Tool Cards Grid */}
-      <div className="grid grid-cols-1 min-[360px]:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 min-[300px]:grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {tools.map((tool) => (
           <div
             key={tool.name}

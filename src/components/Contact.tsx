@@ -2,31 +2,24 @@ import { useSelector } from "react-redux";
 import type { RootState } from "../redux/store";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
+import { useRef } from "react";
 
 export default function Contact() {
   const { theme } = useSelector((state: RootState) => state.theme);
+  const formRef = useRef<HTMLFormElement>(null);
 
-  // Handle form submission
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
-    fetch("https://submit-form.com/8Pik6W3qN", {
-      method: "POST",
-      body: formData,
-    })
-      .then(() => {
-        toast.success("Message sent successfully!");
-        form.reset();
-      })
-      .catch(() => toast.error("Something went wrong. Please try again."));
+  // Form success toast handler
+  const handleSubmit = () => {
+    setTimeout(() => {
+      toast.success("Message sent successfully!");
+      formRef.current?.reset(); // Reset form after submission
+    }, 500);
   };
 
   return (
     <section
       id="contact"
-      className="container mx-auto py-10 md:py-25 flex flex-col md:flex-row items-center justify-center px-4 antialiased"
+      className="container mx-auto py-10 md:py-25 flex flex-col md:flex-row items-center justify-center px-4"
     >
       <Toaster position="top-right" />
 
@@ -45,7 +38,8 @@ export default function Contact() {
           className={`mt-4 ${theme === "light" ? "text-gray-700" : "text-gray-300"
             }`}
         >
-          Start a conversation today and let’s turn your vision
+          Start a conversation today
+          and let’s turn your vision
           <br />
           into something exceptional.
         </p>
@@ -86,10 +80,13 @@ export default function Contact() {
 
       {/* Right Side - Form */}
       <form
+        ref={formRef}
+        action="https://submit-form.com/8Pik6W3qN"
+        method="POST"
         onSubmit={handleSubmit}
-        className={`w-full lg:w-1/2 p-6 sm:p-8 rounded-2xl space-y-4 transition ${theme === "light"
-            ? "bg-[#ffffff] border border-gray-400 text-black shadow-[0_10px_30px_rgba(0,0,0,0.1)]"
-            : "bg-[#202024] border border-white/10 text-white shadow-[0_10px_30px_rgba(255,255,255,0.05)]"
+        className={`w-full lg:w-1/2 p-6 sm:p-8 rounded-2xl shadow-lg space-y-4 transition ${theme === "light"
+          ? "bg-neutral-100 border border-gray-400 text-black"
+          : "bg-[#202024] border border-white/10 text-white"
           }`}
       >
         <div className="flex flex-col sm:flex-row gap-4">
@@ -103,7 +100,6 @@ export default function Contact() {
             <input
               type="text"
               name="name"
-              autoComplete="name"
               required
               aria-label="Your Name"
               placeholder="Your Name"
@@ -123,7 +119,6 @@ export default function Contact() {
             <input
               type="email"
               name="email"
-              autoComplete="email"
               required
               aria-label="Your Email"
               placeholder="yourname@example.com"
