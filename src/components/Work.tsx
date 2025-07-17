@@ -19,14 +19,14 @@ const projects = [
     tags: ['Development', 'API'],
   },
   {
-    title: 'Real State Site',
+    title: 'Real Estate Site',
     image: '/images/project-4.jpg',
     tags: ['Web Design', 'Development'],
   },
   {
-    title: 'eCommerence Store',
+    title: 'E-commerce Store',
     image: '/images/project-5.jpg',
-    tags: ['eCommerce', 'Development'],
+    tags: ['E-commerce', 'Development'],
   },
   {
     title: 'Personal Portfolio',
@@ -54,7 +54,7 @@ export default function Work() {
           <div
             key={project.title}
             className={`group flex flex-col rounded-2xl overflow-hidden shadow-md hover:shadow-lg transition ${theme === "light"
-              ? "bg-neutral-100 border border-gray-400 shadow-[0_10px_50px_rgba(0,0,0,0.08)] rounded-2xl"
+              ? "bg-[#ffffff] border border-gray-400 shadow-[0_10px_50px_rgba(0,0,0,0.08)] rounded-2xl"
               : "bg-[#202024] border border-white/10 rounded-2xl"
 
               }`}

@@ -11,7 +11,7 @@ export default function About() {
     >
       <div
         className={`transition-all duration-300 p-6 md:p-8 mx-auto w-full rounded-2xl ${theme === "light"
-          ? "bg-neutral-100 text-black border border-gray-400 shadow-[0_10px_40px_rgba(0,0,0,0.1)]"
+          ? "bg-[#ffffff] text-black border border-gray-400 shadow-[0_10px_40px_rgba(0,0,0,0.1)]"
           : "bg-[#202024] text-white border border-white/10 "
           }`}
       >

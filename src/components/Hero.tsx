@@ -56,7 +56,7 @@ export default function Hero() {
               className="bg-[#202024] hover:bg-zinc-800 text-white px-6 py-2.5 rounded-lg text-sm flex items-center gap-2"
               onClick={handleScroll}
             >
-              Scroll down
+              Scroll Down
               <HiArrowDown className="text-base" />
             </button>
           </div>

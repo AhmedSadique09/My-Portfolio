@@ -91,7 +91,7 @@ export default function Reviews() {
               <div
                 key={`${t.name}-${index}`}
                 className={`sm:w-[250px] md:w-[320px] max-w-xs flex-shrink-0 p-3 sm:p-4 rounded-2xl shadow-md ${theme === "light"
-                  ? "bg-neutral-100 text-black border border-gray-400 shadow-[0_10px_40px_rgba(0,0,0,0.08)]"
+                  ? "bg-[#ffffff] text-black border border-gray-400 shadow-[0_10px_40px_rgba(0,0,0,0.08)]"
                   : "bg-[#202024] text-white border border-white/10 shadow-[0_10px_40px_rgba(0,0,0,0.1)]"
                   }`}
               >

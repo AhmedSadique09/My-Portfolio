@@ -68,7 +68,7 @@ export default function EssentialTools() {
           <div
             key={tool.name}
             className={`p-4 rounded-lg transition-all duration-300 hover:shadow-lg flex flex-col items-center text-center ${theme === "light"
-              ? "bg-neutral-100 text-black border border-gray-400 shadow-md"
+              ? "bg-[#ffffff] text-black border border-gray-400 shadow-md"
               : "bg-[#202024] text-white border border-white/10"
               }`}
           >
