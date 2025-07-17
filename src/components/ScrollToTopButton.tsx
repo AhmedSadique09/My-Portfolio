@@ -23,13 +23,14 @@ const ScrollToTopButton = () => {
             <button
                 onClick={scrollToTop}
                 aria-label="Scroll to top"
-                className="fixed z-50 p-2 sm:p-3 md:p-4 rounded-full shadow-lg
-                   bg-primary/80 text-white dark:bg-[#202020]/50 dark:text-primary
-                   backdrop-blur-lg transition hover:scale-110 focus:outline-none focus:ring-2 focus:ring-primary
-                   bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8"
+                className="fixed z-50 p-2 sm:p-2.5 md:p-3 rounded-full shadow-lg
+     bg-primary/80 text-white dark:bg-[#202020]/50 dark:text-primary
+     backdrop-blur-lg transition hover:scale-100 focus:outline-none focus:ring-2 focus:ring-primary
+     bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8"
             >
-                <FaArrowUp className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                <FaArrowUp className="w-4 h-4 sm:w-4.5 sm:h-4.5 md:w-5 md:h-5" />
             </button>
+
         )
     );
 };
