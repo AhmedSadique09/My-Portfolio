@@ -46,7 +46,6 @@ export default function Header() {
     };
   }, [isOpen]);
 
-  // Handle scroll to change header style
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 10);
@@ -60,8 +59,19 @@ export default function Header() {
 
   return (
     <>
-      <header className={`${positionClass} top-0 left-0 w-full h-20 flex items-center z-50 px-4`}>
-        <div className="container max-w-screen-xl mx-auto w-full flex items-center justify-between">
+      <header
+        className={`${positionClass} top-0 left-0 w-full h-18 flex items-center z-50 px-4 transition-all ${!isMobile
+          ? theme === "light"
+            ? scrolled
+              ? "bg-white/60 shadow-[0_8px_20px_5px_rgba(0,0,0,0.15)] border border-white/20 backdrop-blur-lg"
+              : "bg-transparent"
+            : scrolled
+              ? "bg-white/10 text-white shadow-[0_8px_20px_5px_rgba(255,255,255,0.08)] border border-white/20 backdrop-blur-lg"
+              : "bg-transparent text-white"
+          : "bg-transparent"
+          }`}
+      >
+        <div className="container mx-auto w-full flex items-center justify-between">
           {/* Logo with Name */}
           <a href="/" className="flex items-center space-x-2">
             <img
@@ -77,23 +87,15 @@ export default function Header() {
               initial={{ x: -40, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
-              className={`font-semibold text-lg inline ${theme === "light" ? "text-[#202018]" : "text-[#ffffff]"}`}
+              className={`font-semibold text-lg hidden min-[300px]:inline ${theme === "light" ? "text-[#202018]" : "text-[#ffffff]"}`}
             >
               Ghulam Ahmed
             </motion.span>
+
           </a>
 
           {/* Desktop Nav */}
-          <nav
-            className={`hidden md:flex gap-4 px-4 py-2 rounded-lg text-sm backdrop-blur-lg transition ${theme === "light"
-              ? scrolled
-                ? "bg-white/60 rounded-2xl shadow-[0_8px_20px_5px_rgba(0,0,0,0.15)] border border-white/20"
-                : "bg-transparent"
-              : scrolled
-                ? "bg-white/10 text-white rounded-2xl shadow-[0_8px_20px_5px_rgba(255,255,255,0.08)] border border-white/20"
-                : "bg-transparent text-white"
-              }`}
-          >
+          <nav className="hidden md:flex gap-4 text-sm">
             {navLinks.slice(0, 4).map((item) => (
               <a
                 key={item}
@@ -125,7 +127,6 @@ export default function Header() {
               Contact Me
             </a>
 
-            {/* Desktop Theme Toggle */}
             <button
               onClick={() => dispatch(toggleTheme())}
               className={`px-3 py-2 rounded-lg text-sm transition flex items-center justify-center ${theme === "light"
@@ -141,18 +142,31 @@ export default function Header() {
             </button>
           </div>
 
-          {/* Hamburger Button (Mobile) */}
+          {/* Mobile Theme Toggle + Hamburger */}
           {isMobile && (
-            <button
-              onClick={() => setIsOpen(true)}
-              aria-label="Open menu"
-              className={`h-8 w-8 flex items-center justify-center rounded-lg text-xl transition backdrop-blur-lg ${theme === "light"
-                ? "dark:bg-[#202020]/60 text-black border border-gray-100 shadow-lg hover:bg-black/40"
-                : "bg-white/10 text-white hover:bg-white/20"
-                }`}
-            >
-              <span className="material-symbols-rounded">menu</span>
-            </button>
+            <div className="flex items-center space-x-2">
+              <button
+                onClick={() => dispatch(toggleTheme())}
+                className={`h-8 w-8 flex items-center justify-center rounded-lg text-xl transition ${theme === "light"
+                  ? "bg-white/40 text-black border border-black/20"
+                  : "bg-white/10 text-white hover:bg-white/20"
+                  }`}
+                aria-label="Toggle theme"
+              >
+                {theme === "light" ? <FaMoon /> : <FaSun />}
+              </button>
+
+              <button
+                onClick={() => setIsOpen(true)}
+                aria-label="Open menu"
+                className={`h-8 w-8 flex items-center justify-center rounded-lg text-xl transition backdrop-blur-lg ${theme === "light"
+                  ? "dark:bg-[#202020]/60 text-black border border-gray-100 shadow-lg hover:bg-black/40"
+                  : "bg-white/10 text-white hover:bg-white/20"
+                  }`}
+              >
+                <span className="material-symbols-rounded">menu</span>
+              </button>
+            </div>
           )}
         </div>
 
@@ -190,22 +204,6 @@ export default function Header() {
                   {item}
                 </a>
               ))}
-
-              {/* Theme Toggle (Mobile) */}
-              <button
-                onClick={() => dispatch(toggleTheme())}
-                className="mt-4 block w-full text-left bg-white/10 px-4 py-2 rounded-lg hover:bg-white/20 transition"
-              >
-                {theme === "light" ? (
-                  <span className="flex items-center gap-2">
-                    <FaMoon /> Dark Mode
-                  </span>
-                ) : (
-                  <span className="flex items-center gap-2">
-                    <FaSun /> Light Mode
-                  </span>
-                )}
-              </button>
             </div>
           </div>
         )}
