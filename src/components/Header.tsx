@@ -66,7 +66,7 @@ export default function Header() {
               ? "bg-white/60 shadow-[0_8px_20px_5px_rgba(0,0,0,0.15)] border border-white/20 backdrop-blur-lg"
               : "bg-transparent"
             : scrolled
-              ? "bg-white/10 text-white shadow-[0_8px_20px_5px_rgba(255,255,255,0.08)] border border-white/20 backdrop-blur-lg"
+              ? "bg-black/10 text-white shadow-[0_8px_20px_5px_rgba(255,255,255,0.08)] border border-white/20 backdrop-blur-lg"
               : "bg-transparent text-white"
           : "bg-transparent"
           }`}
